@@ -1,0 +1,2 @@
+Hello from Ronald Vergel Dela Cruz!
+<p id="data">This is a data from this file!</p>

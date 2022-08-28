@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>FlexBox Viewer</title>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <main class="container">
+            <div class="left-side">
+                <form action="#">
+                    <h3>CSS Flexbox Visualizer</h3>
+                    <div class="input-group">
+                        <h4>Display :</h4>
+                        <input
+                            type="radio"
+                            id="flex"
+                            name="flex"
+                            value="flex"
+                            checked="checked"
+                        />
+                        <label for="flex">Flex</label>
+                    </div>
+                    <div class="input-group">
+                        <h4>Gap :</h4>
+
+                        <!-- Gap 0 -->
+                        <input
+                            type="radio"
+                            id="gap-0"
+                            name="gap"
+                            value="0"
+                            checked="checked"
+                        />
+                        <label for="gap-0">0</label>
+                        <br />
+
+                        <!-- Gap 5 -->
+                        <input type="radio" id="gap-5" name="gap" value="5" />
+                        <label for="gap-5">5</label>
+                    </div>
+                    <div class="input-group">
+                        <h4>Flex Direction :</h4>
+
+                        <!-- Row -->
+                        <input
+                            type="radio"
+                            id="flex-row"
+                            name="flex-direction"
+                            value="row"
+                            checked="checked"
+                        />
+                        <label for="flex-row">Row</label>
+                        <br />
+
+                        <!-- Row Reverse -->
+                        <input
+                            type="radio"
+                            id="flex-row-reverse"
+                            name="flex-direction"
+                            value="row-reverse"
+                        />
+                        <label for="flex-row-reverse">Row Reverse</label>
+                        <br />
+
+                        <!-- Column -->
+                        <input
+                            type="radio"
+                            id="flex-column"
+                            name="flex-direction"
+                            value="column"
+                        />
+                        <label for="flex-column">Column</label>
+                        <br />
+
+                        <!-- Column Reverse -->
+                        <input
+                            type="radio"
+                            id="flex-column-reverse"
+                            name="flex-direction"
+                            value="column-reverse"
+                        />
+                        <label for="flex-column-reverse">Column Reverse</label>
+                        <br />
+                    </div>
+                    <div class="input-group">
+                        <h4>Justify-Content :</h4>
+
+                        <!-- Flex-Start -->
+                        <input
+                            type="radio"
+                            id="flex-start"
+                            name="justify-content"
+                            value="flex-start"
+                            checked="checked"
+                        />
+                        <label for="flex-row">Flex-Start </label>
+                        <br />
+
+                        <!-- Flex-End -->
+                        <input
+                            type="radio"
+                            id="flex-end"
+                            name="justify-content"
+                            value="flex-end"
+                        />
+                        <label for="flex-end">Flex-End </label>
+                        <br />
+
+                        <!-- Space Between -->
+                        <input
+                            type="radio"
+                            id="space-between"
+                            name="justify-content"
+                            value="space-between"
+                        />
+                        <label for="space-between">Space Between</label>
+                        <br />
+
+                        <!-- Space Around -->
+                        <input
+                            type="radio"
+                            id="space-around"
+                            name="justify-content"
+                            value="space-around"
+                        />
+                        <label for="space-around">Space Around</label>
+                        <br />
+
+                        <!-- Center -->
+                        <input
+                            type="radio"
+                            id="center"
+                            name="justify-content"
+                            value="center"
+                        />
+                        <label for="center">Center</label>
+                        <br />
+                    </div>
+                </form>
+            </div>
+            <div class="right-side">
+                <div id="flex-container" class="flex-container">
+                    <div class="box box-1"></div>
+                    <div class="box box-2"></div>
+                    <div class="box box-3"></div>
+                    <div class="box box-4"></div>
+                    <div class="box box-5"></div>
+                </div>
+            </div>
+        </main>
+
+        <script src="flexboxViewer.js"></script>
+    </body>
+</html>
