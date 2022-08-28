@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Nunito", sans-serif;
+}
+
+p {
+    line-height: 1.9rem;
+}
+
+.main-container {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-auto-flow: dense;
+    padding: 20px 40px;
+}
+
+.main-content {
+    grid-column-start: 2;
+}
+
+.left-sidebar {
+    grid-column-start: 1;
+}
+
+.right-sidebar {
+    grid-column-start: 3;
+}
+
+.box-container {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas:
+        "box1 box1 box3"
+        "box2 box2 box3";
+    padding: 20px 40px;
+}
+
+.box-1 {
+    background: darkgoldenrod;
+    /* grid-column: 1/3; */
+    grid-area: box1;
+}
+
+.box-2 {
+    background: salmon;
+    /* grid-column: 1/3; */
+    grid-area: box2;
+}
+
+.box-3 {
+    background: bisque;
+    /* grid-row: 1/3;
+    grid-column: 3; */
+    grid-area: box3;
+}
+
+.img-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 40px;
+}
+
+.img-gallery img {
+    width: 100%;
+}

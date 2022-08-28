@@ -1,17 +1,16 @@
 <?php
 
+//Import PHPMailer classes into the global namespace
+//These must be at the top of your script, not inside a function
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-require 'phpmailer/vendor/phpmailer/phpmailer/src/Exception.php';
-require 'phpmailer/vendor/phpmailer/phpmailer/src/PHPMailer.php';
-require 'phpmailer/vendor/phpmailer/phpmailer/src/SMTP.php';
-
-//autoload the PHPMailer
-require('phpmailer/vendor/autoload.php');
+//Load Composer's autoloader
+require 'phpmailer/vendor/autoload.php';
 
 if (isset($_POST['reset-request-submit'])) {
+
    $selector = bin2hex(random_bytes(8));
    $token = random_bytes(32);
 
@@ -47,14 +46,14 @@ if (isset($_POST['reset-request-submit'])) {
    $mail->isSMTP();                                            //Send using SMTP
    $mail->Host       = "smtp.mail.com";                        //Set the SMTP server to send through
    $mail->SMTPAuth   = TRUE;                                   //Enable SMTP authentication
-   $mail->Username   = "1946.rcc.ccs@gmail.com";               //SMTP username
-   $mail->Password   = "rccccssupport";                     //SMTP password
+   $mail->Username   = "ronald_delacruz@rcc.edu.ph";               //SMTP username
+   $mail->Password   = "zzcqzfjfitacbljw";                        //SMTP password
    $mail->SMTPSecure = "tls";                                  //Enable implicit TLS encryption
    $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
    //Recipients
    $mail->AddAddress($email_to);
-   $mail->SetFrom('1946.rcc.ccs@gmail.com');
+   $mail->SetFrom("ronald_delacruz@rcc.edu.ph");
 
    //Content
    $email_to = $userEmail;
@@ -70,7 +69,7 @@ if (isset($_POST['reset-request-submit'])) {
 
    if (!$mail->Send()) {
       header("Location: ../reset-password.php?reset=failed");
-      echo var_dump($mail);
+      echo $mail->ErrorInfo;
    } else {
       header("Location: ../reset-password.php?reset=success");
    }

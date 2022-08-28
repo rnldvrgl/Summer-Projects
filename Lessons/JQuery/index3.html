@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>JQuery</title>
+   <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+   <h1 id="name" class="green-text">Ronald Vergel</h1>
+   <button id="btn-hide">Hide</button>
+   <button id="btn-show">Show</button>
+   <button id="btn-remove">Remove</button>
+   <button id="btn-toggle">Toggle</button>
+   <button id="btn-change">Change Design</button>
+   <hr><br><br>
+
+   <select id="select1">
+      <option value="option1">option1</option>
+      <option value="option2">option2</option>
+      <option value="option3">option3</option>
+   </select>
+
+   <select id="select2">
+   </select>
+
+   <input type="text" name="firstname" id="fname">
+   <button id="btn-submit">Click</button>
+   
+   <hr><br><br>
+
+   <button id="add-list">Click</button>
+   <ul id="lists">
+      <li>Initial List</li>
+   </ul>
+
+
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+   <script>
+      $(document).ready(function(){
+         var name = $("#name");
+
+         //hide
+         $('#btn-hide').click(function(){
+            // hide text
+            // name.hide();
+
+            //fade out
+            // name.fadeOut(1000);
+
+            //slide up
+            name.slideUp();
+         });
+
+         //show
+         $('#btn-show').click(function(){
+            //show text
+            // name.show();
+
+            //fade in
+            // name.fadeIn(1000);
+
+
+            //slide down
+            name.slideDown();            
+         });
+
+
+         //remove
+         $('#btn-remove').click(function(){
+            name.remove();
+         });
+
+         //toggle
+         $('#btn-toggle').click(function(){
+            //fade toogle
+            // name.fadeToggle();
+            
+            //slide toggle
+            // name.slideToggle();
+
+            //animate
+            name.animate({
+               fontSize: '52px',
+               color: 'red',
+               letterSpacing: '32px',
+               backgroundColor: 'black'
+            });
+         });
+
+
+         //Get and Set
+         $('#btn-submit').on('click', function(){
+            var input = $('#fname');
+            var select1 = $('#select1');
+
+            input.val(select1.val());
+         });
+      
+
+         //Select (on click change)
+         $('#select1').on('change',function(){
+            var selectedValue = this.value;
+            console.log(selectedValue);
+            if(selectedValue == "option1"){
+               $('#select2').html(`
+                  <option value="option1">option1</option>
+                  <option value="option2">option2</option>
+                  <option value="option3">option3</option>
+               `)
+            }
+         });
+         
+         //Append and Prepend
+         $('#add-list').on('click', function(){
+            //insert last element
+            $('#lists').append(`
+               <li>Append</li>
+            `);
+
+            //insert first element
+            $('#lists').prepend(`
+               <li>Prepend</li>
+            `);    
+         });
+
+
+         //Add or Remove Class
+         $('#btn-change').on('click', function(){
+            name.toggleClass('green-text bold');
+         });
+
+
+      });
+   </script>
+
+</body>
+</html>
